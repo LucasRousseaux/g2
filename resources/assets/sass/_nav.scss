@@ -1,0 +1,33 @@
+.navbar-default {
+  position: fixed;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  z-index: 30;
+  .navbar-brand {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  .navbar-toggle {
+    &:hover {
+      background-color: $brand-secundary;
+      border-color:rgba(255,255,255,0.0);
+    }
+    .icon-bar {
+     background-color: white;
+    }
+  }
+  .navbar-nav {
+    li {
+      a {
+        color:white;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 20px;
+      }
+    }
+  }
+}
