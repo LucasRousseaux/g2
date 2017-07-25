@@ -33,28 +33,32 @@
           <h2>Destacados por especialidad</h2>
             <div class="col-sm-6 col-md-4">
               <article class="doctor">
-                <img src="" alt="">
-                <div class="elementos-doctor">
-                  <h3></h3>
-                  <p></p>
-                  <ul>
-                  </ul>
+                <img src="http://lorempixel.com/600/600/people" alt="">
+                <h3>Nombre doctor</h3>
+                <h4>especialidad</h4>
+                <p>rankin:</p>
+                <ul>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <div class="datos">
                   <div class="locacion">
-                    <i class="fa fa-map-marker"><h6>5k</h6></i>
+                    <i class="fa fa-map-marker"></i><h3>5k</h3>
+                  </div>
+                  <div class="comentarios">
+                    <i class="fa fa-comments-o"></i><span>3</span>
                   </div>
                 </div>
               </article>
-            </div>';
+            </div>
         </div>
-        <div class="separador"></div>
         <div class="row">
           <h2>Destacados por localidad</h2>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
 @endsection

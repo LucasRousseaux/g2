@@ -1,0 +1,47 @@
+#login {
+  color: white;
+  text-align: center;
+  h2 {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+  .registro {
+    .inicioSesion {
+      margin-top: 20%;
+      form {
+        margin-top: 48px;
+        input {
+          border: 0;
+          border-bottom: 1px solid white !important;
+          background-color: transparent !important;
+          border-radius: 0 !important;
+          height: 48px;
+          margin-top: 24px;
+          margin-bottom: 24px;
+          box-shadow: 0 0 0 transparent;
+          text-align: center;
+          &::placeholder {
+            color: rgba(255,255,255,0.5);
+          }
+        }
+      }
+      input[type="checkbox"]{
+        display: inline-block;
+        margin: 0;
+        margin-left: -30px;
+        width: 24px;
+        height: 24px;
+        background-color: transparent;
+
+      }
+      button {
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        height: 48px;
+      }
+    }
+  }
+}

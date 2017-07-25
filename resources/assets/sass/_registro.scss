@@ -1,0 +1,38 @@
+#registro {
+  color: white;
+  text-align: center;
+  h2 {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+  .registro {
+    .formRegistro {
+      margin-top: 20%;
+      form {
+        margin-top: 48px;
+        input {
+          box-shadow: 0 0 0 transparent;
+          border: 0;
+          border-bottom: 1px solid white !important;
+          background-color: transparent !important;
+          border-radius: 0 !important;
+          height: 48px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          text-align: center;
+          &::placeholder {
+            color: rgba(255,255,255,0.5);
+          }
+        }
+      }
+      button {
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        height: 48px;
+      }
+    }
+  }
+}
