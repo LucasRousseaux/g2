@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class doctor_specialty extends Model
+class Institution extends Model
 {
     //
+    protected $guarded = [];
 }

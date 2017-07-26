@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class locations extends Model
+class Recommnedation extends Model
 {
     //
+    protected $guarded = [];
 }
