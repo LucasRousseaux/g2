@@ -1,20 +1,31 @@
 body {
-  text-align: center;
+  text-align: left;
 }
 
 h1 {
-  color: white;
-  margin: 50px auto 10px auto;
-  font-size: 30px;
-  line-height: 30px;
-}
-
-h2 {
-  color: #29C3DB;
+  font-size: 32px;
+  line-height: 32px;
+  color: $brand-secundary;
+  @media only screen and (min-width : 768px) {
+    font-size: 48px;
+    line-height: 48px;
+  }
 }
 
 h3 {
-  color: white;
+  @media only screen and (min-width : 768px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+h2, h3, h4 {
+  color: $brand-gray-01;
+  font-weight: 300;
+}
+
+p, i {
+  color: $brand-gray-02;
 }
 
 section {
@@ -25,6 +36,22 @@ img {
   max-width: 100%;
 }
 
-.separador {
-  margin: 5% auto;
+button {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  height: 48px;
+  background-color: $brand-gray-03;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+  border-radius: 6px;
+}
+
+.linea {
+  width: 32px;
+  height: 8px;
+  background-color: $brand-primary;
+  @media only screen and (min-width : 768px) {
+    width: 72px;
+  }
 }

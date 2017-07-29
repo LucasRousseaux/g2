@@ -11,7 +11,13 @@
 // Estilos
 @import "funciones";
 @import "reset";
-@import "nav";
 @import "home";
-@import "login";
-@import "registro";
+@import "buscador";
+@import "auth/login";
+@import "auth/register";
+@import "nav";
+@import "destacados";
+@import "doctors";
+@import "doctor";
+@import "rating";
+@import "edit";

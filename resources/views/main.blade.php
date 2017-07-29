@@ -4,7 +4,7 @@
     <section class="home">
       <div class="container">
         <div class="row">
-          <h1>Bienvenido a <b>Gubler</b></h1>
+          <h1>Hola {{ Auth::user()->name }} Bienvenido a <b>Gubler</b></h1>
           <h3>La consulta médica que buscás, ahora al alcance de un click</h3>
         </div>
         <div class="row">

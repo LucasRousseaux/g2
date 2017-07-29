@@ -1,0 +1,17 @@
+.edit {
+  list-style: none;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+    a {
+      i {
+        font-size: 20px;
+        &:hover {
+          color: $brand-gray-01;
+        }
+      }
+    }
+  }
+}

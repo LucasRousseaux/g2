@@ -1,0 +1,70 @@
+.destacados {
+  min-height: 100vh;
+  article {
+    background-color: $brand-info;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: left;
+    h3 {
+      font-size: 32px;
+    }
+    h4 {
+      color: white;
+      font-size: 22px;
+    }
+    p {
+      font-size: 16px;
+      color: white;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-flow: row wrap;
+      align-content: space-around;
+      li {
+        display: inline-block;
+        margin: auto;
+        i {
+          font-size: 32px;
+          color: $brand-warning;
+        }
+      }
+    }
+    .datos {
+      display: flex;
+      flex-flow: row wrap;
+      align-content: space-between;
+      .locacion {
+        margin: auto;
+        h3 {
+          display: inline-block;
+          margin-left: 16px;
+        }
+        i {
+          color: white;
+          font-size: 32px;
+        }
+      }
+      .comentarios {
+        margin: auto;
+        text-align: right;
+        i {
+          color: white;
+          font-size: 32px;
+        }
+        span {
+          background-color: purple;
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
+          padding: 8px;
+          font-size: 16px;
+          color: white;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

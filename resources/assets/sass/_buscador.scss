@@ -1,0 +1,84 @@
+.buscador {
+  width: 90%;
+  margin-left: 5%;
+  @media only screen and (min-width : 1024px) {
+    width: 100%;
+    margin-left: 0;
+  }
+  .formulario-home {
+    margin-top: 10%;
+    border: 1px solid $brand-gray-01;
+    overflow: auto;
+    border-radius: 6px;
+    padding: 0 16px 16px 16px;
+    @media only screen and (min-width : 768px) {
+      padding: 0;
+    }
+    div {
+      @media only screen and (min-width : 768px) {
+        margin-left: -15px;
+        &:first-child{
+          margin-left: 0;
+        }
+      }
+    }
+    label {
+      position: absolute;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+    input {
+     width: 100%;
+     height: 60px;
+     margin: 16px 0;
+     border: 0;
+     border-bottom: 1px solid $brand-gray-01;
+     padding: 30px 10px 10px 10px;
+     background-color: rgba(0,0,0,0.0);
+     color: $brand-gray-01;
+     text-align: left;
+     &::placeholder{
+      color: $brand-gray-02;
+      font-weight: 300;
+     }
+     @media only screen and (min-width : 768px) {
+       border: 0;
+       border-right: 1px solid $brand-gray-01;
+       margin: 0;
+       padding-left: 0;
+      }
+      @media only screen and (min-width : 1024px) {
+        height: 88px;
+        font-size: 24px;
+      }
+   }
+   button {
+     width: 100%;
+     height: 48px;
+     border: 0;
+     border-radius: 6px;
+     background: $brand-secundary;
+     margin-top: 15px;
+     color: $brand-gray-01;
+     @media only screen and (min-width : 768px) {
+       margin: 0;
+       padding: 0;
+       background: transparent;
+       text-align: center;
+     }
+     @media only screen and (min-width : 1024px) {
+       padding-top: 24px;
+     }
+     i {
+       color: $brand-gray-03;
+       font-size: 20px;
+       @media only screen and (min-width : 768px) {
+         color: $brand-secundary;
+       }
+       @media only screen and (min-width : 1024px) {
+         font-size: 32px;
+       }
+     }
+   }
+  }
+}

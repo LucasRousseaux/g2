@@ -1,14 +1,20 @@
 .navbar-default {
-  position: fixed;
+  position: absolute;
   width: 100%;
   border: 0;
-  background-color: transparent;
-  color: white;
+  background-color: $brand-secundary;
+  color: $brand-gray-03;
   z-index: 30;
+  @media only screen and (min-width : 992px) {
+    background-color: transparent;
+  }
   .navbar-brand {
-    color: white;
+    color: $brand-gray-03;
+    @media only screen and (min-width : 1024px) {
+      color: $brand-secundary;
+    }
     &:hover {
-      color: white;
+      color: $brand-secundary;
     }
   }
   .navbar-toggle {
@@ -21,12 +27,16 @@
     }
   }
   .navbar-nav {
-    li {
+    .links {
+      padding-top: 16px;
+      padding-bottom: 16px;
       a {
-        color:white;
-        padding-top: 25px;
-        padding-bottom: 25px;
-        font-size: 20px;
+        color:$brand-gray-03;
+        font-size: 16px;
+        margin-right: 16px;
+        @media only screen and (min-width : 1024px) {
+          color:$brand-gray-01;
+        }
       }
     }
   }

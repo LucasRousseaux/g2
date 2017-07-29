@@ -1,20 +1,21 @@
 #login {
-  color: white;
+  color: $brand-gray-01;
   text-align: center;
   h2 {
-    color: white;
+    color: $brand-secundary;
+    margin-top: 20%;
   }
   a {
-    color: white;
+    color: $brand-gray-01;
   }
   .registro {
     .inicioSesion {
-      margin-top: 20%;
+      margin-top: 10%;
       form {
         margin-top: 48px;
         input {
           border: 0;
-          border-bottom: 1px solid white !important;
+          border-bottom: 1px solid $brand-gray-01 !important;
           background-color: transparent !important;
           border-radius: 0 !important;
           height: 48px;
@@ -23,7 +24,7 @@
           box-shadow: 0 0 0 transparent;
           text-align: center;
           &::placeholder {
-            color: rgba(255,255,255,0.5);
+            color: rgba(150,150,150,0.5);
           }
         }
       }
@@ -35,12 +36,6 @@
         height: 24px;
         background-color: transparent;
 
-      }
-      button {
-        width: 100%;
-        margin-top: 24px;
-        margin-bottom: 24px;
-        height: 48px;
       }
     }
   }

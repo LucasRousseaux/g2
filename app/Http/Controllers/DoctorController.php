@@ -14,7 +14,11 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        //mostrar todos los doctores
+        $doctores = Doctor::all();
+        return view('doctors', [
+          'doctores' => $doctores
+        ]);
     }
 
     /**
@@ -81,5 +85,13 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
+    }
+
+    public function mostrarDoctor($id)
+    {
+        $doctor = Doctor::find($id);
+        return view('doctor', [
+          'doctor' => $doctor
+        ]);
     }
 }
