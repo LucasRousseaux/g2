@@ -19,6 +19,10 @@ class CreateTableDoctors extends Migration
             //
             $table->increments('id');
             $table->string('doctor_name');
+            $table->string('doctor_phone');
+            $table->string('doctor_image');
+            $table->char('doctor_gender',6);
+            $table->date('doctor_birthdate');
             $table->string('doctor_experience');
             $table->string('doctor_upin');
             $table->string('doctor_titles');

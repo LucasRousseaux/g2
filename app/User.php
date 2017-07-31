@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function patient() {
+
+        return $this->hasOne(Patient::class, 'foreign_key', 'other_key');
+
+    }
+
+    public function doctor() {
+
+        return $this->hasOne(Doctor::class, 'foreign_key', 'other_key');
+        
+    }
+
+
 }

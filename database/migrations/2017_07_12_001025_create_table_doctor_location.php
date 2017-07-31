@@ -18,6 +18,7 @@ class CreateTableDoctorLocation extends Migration
             //
             $table->increments('id');
             $table->bigInteger('doctor_id');
+            $table->string('doctor_address');
             $table->bigInteger('location_id');
             $table->timestamps();
 
