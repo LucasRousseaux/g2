@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function coments()
+    {
+      $c = $this->hasMany(Coment::class);
+
+      return $c;
+
+    }
 }

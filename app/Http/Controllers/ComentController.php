@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
-use App\User;
+use App\Coment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class DoctorController extends Controller
+class ComentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,10 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //mostrar todos los doctores
-        $doctores = Doctor::all();
-        return view('doctors', [
-          'doctores' => $doctores
-        ]);
+      $coments = Coment::all();
+      return('doctor', [
+         $coments => 'coments',
+      ]);
     }
 
     /**
@@ -46,10 +45,10 @@ class DoctorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Coment  $coment
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show(Coment $coment)
     {
         //
     }
@@ -57,10 +56,10 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Coment  $coment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit(Coment $coment)
     {
         //
     }
@@ -69,10 +68,10 @@ class DoctorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Coment  $coment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, Coment $coment)
     {
         //
     }
@@ -80,21 +79,11 @@ class DoctorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Coment  $coment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy(Coment $coment)
     {
         //
-    }
-
-    public function mostrarDoctor($id)
-    {
-        $doctor = Doctor::find($id);
-        $users = User::all();
-        return view('doctor', [
-          'doctor' => $doctor,
-          'users' => $users
-        ]);
     }
 }

@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doctor extends Model
+class Coment extends Model
 {
-    protected $guarded = [];
-
+    public $guarded = [];
 }

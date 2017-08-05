@@ -22,3 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/doctors', 'DoctorController');
 
 Route::get('/doctor/{id}', 'DoctorController@mostrarDoctor');
+
+Route::get('/prueba',function(){
+    $users = App\Coment::all();
+    foreach ($users as $user) {
+        echo $user->coment;
+    }
+});
