@@ -27,27 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-<<<<<<< HEAD
     public function coments()
     {
-      $c = $this->hasMany(Coment::class);
+        $coments = $this->hasMany(Coment::class);
 
-      return $c;
-
+        return $coments;
     }
-=======
-    public function patient() {
-
-        return $this->hasOne(Patient::class, 'foreign_key', 'other_key');
-
-    }
-
-    public function doctor() {
-
-        return $this->hasOne(Doctor::class, 'foreign_key', 'other_key');
-        
-    }
-
-
->>>>>>> master
 }
