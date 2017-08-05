@@ -18,7 +18,7 @@ class CreateTableInstitutions extends Migration
             //
             $table->increments('id');
             $table->string('institution_name');
-            $table->bigInteger('institution_id');
+            $table->bigInteger('parent_institution_id');
             $table->bigInteger('institution_type_id');
             $table->timestamps();
 

@@ -18,7 +18,7 @@ class CreateTableLocations extends Migration
             //
             $table->increments('id');
             $table->string('location_name');
-            $table->bigInteger('location_id');
+            $table->bigInteger('parent_location_id');
             $table->timestamps();
 
         });

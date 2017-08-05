@@ -8,4 +8,11 @@ class InstitutionType extends Model
 {
     //
     protected $guarded = [];
+
+    public function institutions() {
+
+      return $this-> hasMany (Institution::class, 'foreign_key', 'local_key');
+
+    }
+
 }

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+<<<<<<< HEAD
     public function coments()
     {
       $c = $this->hasMany(Coment::class);
@@ -34,4 +35,19 @@ class User extends Authenticatable
       return $c;
 
     }
+=======
+    public function patient() {
+
+        return $this->hasOne(Patient::class, 'foreign_key', 'other_key');
+
+    }
+
+    public function doctor() {
+
+        return $this->hasOne(Doctor::class, 'foreign_key', 'other_key');
+        
+    }
+
+
+>>>>>>> master
 }
