@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RecommendationsTableSeeder extends Seeder
+class SpecialtyTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

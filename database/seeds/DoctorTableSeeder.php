@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class InstitutionsTypeTableSeeder extends Seeder
+class DoctorTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

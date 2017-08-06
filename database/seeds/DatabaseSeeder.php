@@ -14,27 +14,27 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
 
-        $this->call(InstitutionsTypeTableSeeder::class);
-        $this->call(InstitutionsTableSeeder::class);
-        $this->call(LocationsTableSeeder::class);
-        $this->call(SpecialtiesTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        $this->call(DoctorsTableSeeder::class);
-        $this->call(PatientsTableSeeder::class);
-        $this->call(RecommendationsTableSeeder::class);
+        $this->call(InstitutionTypeTableSeeder::class);
+        $this->call(InstitutionTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
+        $this->call(SpecialtyTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(DoctorTableSeeder::class);
+        $this->call(PatientTableSeeder::class);
+        $this->call(RecommendationTableSeeder::class);
 
-        $institutionsType = factory(InstitutionsType::class)->times(50)->create();
-        $institutions = factory(Institutions::class)->times(50)->create();
-        $locations = factory(Locations::class)->times(50)->create();
-        $specialties = factory(Specialties::class)->times(50)->create();
-        $users = factory(User::class)->times(50)->create();
-        $doctors = factory(Doctor::class)->times(50)->create();
-        $patients = factory(Patient::class)->times(50)->create();
-        $recommendations = factory(Recommendation::class)->times(50)->create();
+        $institutionsType = factory(App\InstitutionType::class)->times(50)->create();
+        $institutions = factory(App\Institution::class)->times(50)->create();
+        $locations = factory(App\Location::class)->times(50)->create();
+        $specialties = factory(App\Specialty::class)->times(50)->create();
+        $users = factory(App\User::class)->times(50)->create();
+        $doctors = factory(App\Doctor::class)->times(50)->create();
+        $patients = factory(App\Patient::class)->times(50)->create();
+        $recommendations = factory(App\Recommendation::class)->times(50)->create();
 
         foreach ($institutions as $institution) {
 
-          $institution->institutiontype()->sync($institutionsType->random(1));
+          $institution->institutiontype()->sync($institutionType->random(1));
           $institution->parentInstitution()->sync($institution->random(1));
 
         }

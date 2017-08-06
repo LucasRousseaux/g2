@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DoctorsTableSeeder extends Seeder
+class InstitutionTypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,5 @@ class DoctorsTableSeeder extends Seeder
     public function run()
     {
         //
-
-        
     }
 }

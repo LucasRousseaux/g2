@@ -49,3 +49,43 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
         'patient_birthdate' => $faker->date($format = 'Y-m-d', $max = 'now'),
     ];
 });
+
+
+$factory->define(App\Location::class, function (Faker\Generator $faker) {
+
+    return [
+        'location_name' => $faker->stateAbbr,
+    ];
+});
+
+$factory->define(App\Specialty::class, function (Faker\Generator $faker) {
+
+    return [
+        'specialty_name' => $faker->sentence(2),
+    ];
+});
+
+
+$factory->define(App\Institution::class, function (Faker\Generator $faker) {
+
+    return [
+        'institution_name' => $faker->sentence(2),
+    ];
+});
+
+
+$factory->define(App\InstitutionType::class, function (Faker\Generator $faker) {
+
+    return [
+        'institution_type_name' => $faker->sentence(2),
+    ];
+});
+
+
+$factory->define(App\Recommendation::class, function (Faker\Generator $faker) {
+
+    return [
+        'recommended_grade' => $faker->$faker->randomElement($array = array (0,1,2)),
+        'recommended_comment' => $faker->text(),
+    ];
+});
