@@ -21,7 +21,7 @@ class CreateTablePatients extends Migration
             $table->string('patient_name');
             $table->string('patient_phone');
             $table->string('patient_image');
-            $table->char('patient_gender',5);
+            $table->char('patient_gender',10);
             $table->date('patient_birthdate');
             $table->timestamps();
 

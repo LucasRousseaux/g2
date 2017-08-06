@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->unique()->email,
                 'password' => $faker->password,
+                'language' => 'Spanish',
             ]);
         }
     }

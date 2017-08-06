@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Recommnedation extends Model
+class Recommendation extends Model
 {
     //
+
     protected $guarded = [];
 
     public function fromUser() {
@@ -20,7 +21,5 @@ class Recommnedation extends Model
         return $this->belongsTo(User::class, 'foreign_key', 'other_key');
 
     }
-
-
 
 }

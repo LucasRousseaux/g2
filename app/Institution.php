@@ -16,7 +16,7 @@ class Institution extends Model
 
     }
 
-    public function institutiontype() {
+    public function institutionTypes() {
 
         return $this->belongsTo(InstitutionType::class, 'foreign_key', 'other_key');
 

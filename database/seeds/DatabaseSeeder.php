@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PatientTableSeeder::class);
         $this->call(RecommendationTableSeeder::class);
 
-        $institutionsType = factory(App\InstitutionType::class)->times(50)->create();
+        $institutionTypes = factory(App\InstitutionType::class)->times(50)->create();
         $institutions = factory(App\Institution::class)->times(50)->create();
         $locations = factory(App\Location::class)->times(50)->create();
         $specialties = factory(App\Specialty::class)->times(50)->create();
@@ -34,7 +35,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($institutions as $institution) {
 
-          $institution->institutiontype()->sync($institutionType->random(1));
+          $institution->institutionTypes()->sync($institutionTypes->random(1));
           $institution->parentInstitution()->sync($institution->random(1));
 
         }
