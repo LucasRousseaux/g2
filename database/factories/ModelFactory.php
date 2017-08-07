@@ -93,9 +93,9 @@ $factory->define(App\InstitutionType::class, function (Faker\Generator $faker) {
 $factory->define(App\Recommendation::class, function (Faker\Generator $faker) {
 
     return [
-        'recommended_grade' => $faker->randomElement($array = array (0,1,2)),
-        'recommended_comment' => $faker->text($maxNbChars = 190),
-        'recommended_from_user_id' => 1,
-        'recommended_to_user_id' => 2,
+        'grade' => $faker->randomElement($array = array (0,1,2)),
+        'comment' => $faker->text($maxNbChars = 190),
+        'from_user_id' => 1,
+        'to_user_id' => 2,
     ];
 });

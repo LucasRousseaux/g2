@@ -17,10 +17,10 @@ class CreateTableRecommendations extends Migration
         Schema::create('recommendations', function (Blueprint $table) {
             //
             $table->increments('id');
-            $table->bigInteger('recommended_from_user_id');
-            $table->bigInteger('recommended_to_user_id');
-            $table->integer('recommended_grade');
-            $table->string('recommended_comment');
+            $table->bigInteger('from_user_id');
+            $table->bigInteger('to_user_id');
+            $table->integer('grade');
+            $table->string('comment');
             $table->timestamps();
 
         });

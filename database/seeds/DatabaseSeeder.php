@@ -24,53 +24,86 @@ class DatabaseSeeder extends Seeder
         $this->call(PatientTableSeeder::class);
         $this->call(RecommendationTableSeeder::class);
 
+        $users = factory(App\User::class)->times(50)->create();
+        $doctors = factory(App\Doctor::class)->times(50)->create();
+
+        foreach ($users as $user) {
+
+          $user->doctor()->save(factory(App\Doctor::class)->make());
+          $user->isRecommended()->save(factory(App\Recommendation::class)->make());
+        }
+
+        $users = factory(App\User::class)->times(50)->create();
+        $patients = factory(App\Patient::class)->times(50)->create();
+
+        foreach ($users as $user) {
+
+          $user->patient()->save(factory(App\Patient::class)->make());
+          $user->recommendations()->save(factory(App\Recommendation::class)->make());
+        }
+
         $institutionTypes = factory(App\InstitutionType::class)->times(50)->create();
         $institutions = factory(App\Institution::class)->times(50)->create();
         $locations = factory(App\Location::class)->times(50)->create();
         $specialties = factory(App\Specialty::class)->times(50)->create();
-        $users = factory(App\User::class)->times(50)->create();
-        $doctors = factory(App\Doctor::class)->times(50)->create();
-        $patients = factory(App\Patient::class)->times(50)->create();
         $recommendations = factory(App\Recommendation::class)->times(50)->create();
 
-        foreach ($institutions as $institution) {
-
-          $institution->institutionTypes()->sync($institutionTypes->random(1));
-          $institution->parentInstitution()->sync($institution->random(1));
-
-        }
-
-        foreach ($locations as $location) {
-
-          $location->parentLocation()->sync($location->random(1));
-
-        }
-
-        foreach ($specialties as $specialty) {
-
-          $specialty->parentSpecialty()->sync($specialty->random(1));
-
-        }
 
         foreach ($doctors as $doctor) {
 
-          $doctor->user()->sync($user->random(1));
+          $doctor->institutions()->sync($institutions->random(2));
+          $doctor->locations()->sync($locations->random(2));
+          $doctor->specialties()->sync($specialties->random(2));
 
         }
 
         foreach ($patients as $patient) {
 
-          $patient->user()->sync($user->random(1));
-
-        }
-
-        foreach ($recommendations as $recommendation) {
-
-          $recommendation->fromUser()->sync($user->random(1));
-          $recommendation->toUser()->sync($user->random(1));
+          $patient->locations()->sync($locations->random(2));
 
         }
 
 
-    }
-}
+        foreach ($institutionTypes as $institutionType) {
+
+          factory(Institution::class,4)->create([
+            'institution_type_id' => $institutionType->id,
+          ]);
+
+        }
+
+
+        /*
+                foreach ($institutions as $institution) {
+
+                  factory(Institution::class,1)->create([
+                    'parent_institution_id' => $institution->id,
+                  ]);
+
+
+                }
+
+
+                foreach ($locations as $location) {
+
+                  factory(Location::class,1)->create([
+                    'parent_location_id' => $location->id,
+                  ]);
+
+
+                }
+
+                foreach ($specialties as $specialty) {
+
+                  factory(Specialty::class,1)->create([
+                    'parent_specialty_id' => $specialty->id,
+                  ]);
+
+
+                }
+
+
+        */
+
+    } //run()
+} // DataBaseSeeder

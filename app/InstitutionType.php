@@ -11,7 +11,7 @@ class InstitutionType extends Model
 
     public function institutions() {
 
-      return $this-> hasMany (Institution::class, 'foreign_key', 'local_key');
+      return $this-> hasMany (Institution::class);
 
     }
 

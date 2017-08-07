@@ -11,13 +11,7 @@ class Specialty extends Model
 
     public function doctors() {
 
-        return $this->belongsToMany(Doctor::class, 'table', 'foreign_key', 'other_key');
-
-    }
-
-    public function parentSpecialty() {
-
-        return $this->belongsTo(Specialty::class, 'foreign_key', 'other_key');
+        return $this->belongsToMany(Doctor::class);
 
     }
 

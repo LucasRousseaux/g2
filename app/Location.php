@@ -11,13 +11,13 @@ class Location extends Model
 
     public function doctors() {
 
-        return $this->belongsToMany(Doctor::class, 'table', 'foreign_key', 'other_key');
+        return $this->belongsToMany(Doctor::class);
 
     }
 
-    public function parentLocation() {
+    public function patients() {
 
-        return $this->belongsTo(Location::class, 'foreign_key', 'other_key');
+        return $this->belongsToMany(Patient::class);
 
     }
 
