@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm-offset-1 col-sm-4 floatDer">
         <div class="imgDoctor">
-          <img src="http://lorempixel.com/600/600/people/" alt="">
+          <img src= {{ $doctor->doctor_image }} alt="">
         </div>
         <div class="row">
           <div class="col-sm-12">
@@ -14,14 +14,7 @@
           </div>
           <div class="col-sm-12">
             <div class="rating">
-              <ul>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-              </ul>
-              <h5>Recomendado por: 23 personas</h5>
+              <h5>Teléfono: {{ $doctor->doctor_phone }}</h5>
             </div>
           </div>
         </div>
@@ -80,10 +73,7 @@
           <div class="col-sm-12">
             <h3>Comentarios <span>23</span></h3>
           </div>
-          {{-- @php
-            dd($users->coments);
-          @endphp --}}
-          @foreach ($users as $user)
+          @foreach ($doctor->user->coments as $user)
             <div class="col-sm-12">
               <div class="comentario">
                 <div class="row">
@@ -91,7 +81,7 @@
                     <img src="http://lorempixel.com/600/600/people/" alt="">
                   </div>
                   <div class="col-sm-8">
-                    <h3>{{ $user->name }}</h3>
+                    <h3>{{ $user->comment }}</h3>
                     <h5>29 de Julio de 2017</h5>
                   </div>
                   <div class="col-sm-2">
