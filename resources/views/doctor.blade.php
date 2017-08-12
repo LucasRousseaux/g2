@@ -14,8 +14,17 @@
           </div>
           <div class="col-sm-12">
             <div class="rating">
-              <h5>Teléfono: {{ $doctor->doctor_phone }}</h5>
+              <ul>
+
+                @foreach ($doctor->user->recommendations as $rating)
+
+                @endforeach
+                <li><i class="fa fa-star"></i></li>
+              </ul>
+
             </div>
+            <h5>Teléfono: {{ $doctor->doctor_phone }}</h5>
+
           </div>
         </div>
       </div>
@@ -28,14 +37,7 @@
             </div>
             <div class="col-sm-5">
               <div class="rating">
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <h5>Recomendado por: 23 personas</h5>
+                <h5>Teléfono: {{ $doctor->doctor_phone }}</h5>
               </div>
             </div>
           </div>
@@ -61,8 +63,12 @@
         <div class="row">
           <div class="col-xs-12">
             <h3>Escribir un comentario</h3>
-            <form class="comentario" action="" method="post">
-               <textarea class="form-control" rows="5" id="comment"></textarea>
+            <form class="comentario" action={{ route('recommendations.store') }} method="post">
+              {{ csrf_field() }}
+              <input type="text" name="from_user_id" value={{Auth::user()->id}} style="display:none">
+              <input type="text" name="to_user_id" value={{$doctor->id}} style="display:none">
+
+               <textarea class="form-control" rows="5" id="comment" name="coment" value=""></textarea>
               <div class="col-sm-offset-8 col-sm-4">
                 <button type="submit" name="button">Enviar</button>
               </div>
@@ -70,10 +76,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
-            <h3>Comentarios <span>23</span></h3>
-          </div>
-          @foreach ($doctor->user->coments as $user)
+          {{ dd($recommendations) }}
+          @foreach ($doctor->user->recommendations as $user)
+            <div class="col-sm-12">
+              <h3>Comentarios <span>{{$loop->count}}</span></h3>
+            </div>
             <div class="col-sm-12">
               <div class="comentario">
                 <div class="row">
@@ -81,7 +88,7 @@
                     <img src="http://lorempixel.com/600/600/people/" alt="">
                   </div>
                   <div class="col-sm-8">
-                    <h3>{{ $user->comment }}</h3>
+                    {{-- <h3>{{ $user->coment }}</h3> --}}
                     <h5>29 de Julio de 2017</h5>
                   </div>
                   <div class="col-sm-2">
@@ -93,7 +100,7 @@
                 </div>
                 <div class="row">
                   <div class="col-xs-12">
-                    <p>{{ $user->coments }}</p>
+                    {{-- <p>{{ $user->comment }}</p> --}}
                   </div>
                 </div>
               </div>

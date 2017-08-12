@@ -10,14 +10,15 @@
           <div class="linea"></div>
         </div>
         <div class="col-xs-6">
-          <a href="">ver más <i class="fa fa-chevron-right"></i></a>
+
         </div>
       </div>
       <div class="row">
+        {{ $doctores->links() }}
         <div class="docsContainer">
           @foreach ($doctores as $doctor)
             <article class="">
-              <a href="doctor/{{$doctor->id}}"><img src="http://lorempixel.com/600/600/people/" alt=""></a>
+              <a href="doctor/{{$doctor->id}}"><img src={{ $doctor->doctor_image }} alt=""></a>
               <div class="textDoctor">
                 <h2>{{ $doctor->doctor_name }}</h2>
                 <h4>{{ $doctor->doctor_experience }}</h4>

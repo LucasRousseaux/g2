@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Coment;
+use App\Recommendation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ComentController extends Controller
+class RecommendationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class ComentController extends Controller
      */
     public function index()
     {
-      $coments = Coment::all();
-      return('doctor', [
-         $coments => 'coments',
-      ]);
+        //
     }
 
     /**
@@ -39,16 +36,22 @@ class ComentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $recommendation= new Recommendation();
+      $recommendation->recommendation= $request['recommendation'];
+      $recommendation->user_id= $request['user_id'];
+
+      $recommendation->save();
+
+      return redirect()->route('doctors.show', ['id' => $request['doctor_id']]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Coment  $coment
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function show(Coment $coment)
+    public function show(Recommendation $recommendation)
     {
         //
     }
@@ -56,10 +59,10 @@ class ComentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Coment  $coment
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coment $coment)
+    public function edit(Recommendation $recommendation)
     {
         //
     }
@@ -68,10 +71,10 @@ class ComentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Coment  $coment
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coment $coment)
+    public function update(Request $request, Recommendation $recommendation)
     {
         //
     }
@@ -79,10 +82,10 @@ class ComentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Coment  $coment
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coment $coment)
+    public function destroy(Recommendation $recommendation)
     {
         //
     }

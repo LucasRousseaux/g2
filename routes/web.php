@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/doctors', 'DoctorController');
 
+Route::resource('/recommendations', 'RecommendationController');
+
 Route::get('/doctor/{id}', 'DoctorController@mostrarDoctor');
 
 Route::get('/prueba',function(){

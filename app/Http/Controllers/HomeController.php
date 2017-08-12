@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Specialty;
+use App\Location;
+use App\Doctor;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $specialities = Specialty::all();
+        $locations = Location::all();
+        $doctors = Doctor::all();
+        return view('home', [
+          'specialities' => $specialities,
+          'locations' => $locations,
+          'doctors' => $doctors,
+        ]);
     }
 }

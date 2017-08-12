@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\User;
+use App\Recommendation;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -16,7 +17,7 @@ class DoctorController extends Controller
     public function index()
     {
         //mostrar todos los doctores
-        $doctores = Doctor::all();
+        $doctores = Doctor::paginate(12);
         return view('doctors', [
           'doctores' => $doctores
         ]);
@@ -51,7 +52,14 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        $doctor = Doctor::find($doctor->id);
+        $users = User::all();
+        $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->get();
+        return view('doctor', [
+          'doctor' => $doctor,
+          'users' => $users,
+          'recommendations' => $recommendations
+        ]);
     }
 
     /**
