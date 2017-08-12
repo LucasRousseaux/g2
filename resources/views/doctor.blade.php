@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="row">
-          {{ dd($recommendations) }}
+          {{-- {{ dd($recommendations) }} --}}
           @foreach ($doctor->user->recommendations as $user)
             <div class="col-sm-12">
               <h3>Comentarios <span>{{$loop->count}}</span></h3>

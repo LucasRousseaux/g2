@@ -54,11 +54,11 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::find($doctor->id);
         $users = User::all();
-        $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->get();
+        // $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->get();
         return view('doctor', [
           'doctor' => $doctor,
           'users' => $users,
-          'recommendations' => $recommendations
+        //   'recommendations' => $recommendations
         ]);
     }
 
