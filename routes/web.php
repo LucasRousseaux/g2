@@ -29,3 +29,5 @@ Route::get('/prueba',function(){
         echo $user->coment;
     }
 });
+
+Route::resource('users','UserController');
