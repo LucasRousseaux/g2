@@ -118,3 +118,11 @@ $factory->define(App\Recommendation::class, function (Faker\Generator $faker) {
         'to_user_id' => 2,
     ];
 });
+
+$factory->define(App\Follow::class, function (Faker\Generator $faker) {
+
+    return [
+        'from_user_id' => 1,
+        'to_user_id' => 2,
+    ];
+});

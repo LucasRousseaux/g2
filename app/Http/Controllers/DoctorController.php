@@ -18,11 +18,14 @@ class DoctorController extends Controller
     public function index()
     {
         //mostrar todos los doctores
-        $doctores = Doctor::paginate(12);
-        $recommendations = Recommendation::all();
+        $doctors = DB::table('doctors')
+        ->join('users', 'doctors.user_id', '=', 'users.id')
+        ->join('recommendations', 'recommendations.to_user_id', '=', 'users.id')
+        ->groupBy('id', 'doctor_name', 'doctor_image', 'doctor_experience')
+        ->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, sum(recommendations.grade) as doctor_ranking')->take(10)->get();
+
         return view('doctors', [
-          'doctores' => $doctores,
-          'recommendations' => $recommendations
+          'list' => $doctors,
         ]);
     }
 
