@@ -1,4 +1,5 @@
 <?php
+use App\Recommendation;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +24,11 @@ Route::resource('/doctors', 'DoctorController');
 
 Route::resource('/recommendations', 'RecommendationController');
 
-Route::get('/doctor/{id}', 'DoctorController@mostrarDoctor');
-
 Route::get('/prueba',function(){
-    $users = App\Coment::all();
-    foreach ($users as $user) {
-        echo $user->coment;
-    }
+  $recommendation = DB::table('doctors')->where('user_id', '=', 5 )->get();
+
+  dd($recommendation);
+
 });
 
 Route::resource('users','UserController');

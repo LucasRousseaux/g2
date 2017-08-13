@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Recommendation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 class RecommendationController extends Controller
 {
@@ -36,13 +37,18 @@ class RecommendationController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request['comment'], $request['from_user_id'], $request['to_user_id']);
       $recommendation= new Recommendation();
-      $recommendation->recommendation= $request['recommendation'];
-      $recommendation->user_id= $request['user_id'];
+      $recommendation->comment = $request['comment'];
+      $recommendation->from_user_id = $request['from_user_id'];
+      $recommendation->to_user_id = $request['to_user_id'];
+      $doctor = $request['to_user_id'];
 
       $recommendation->save();
 
-      return redirect()->route('doctors.show', ['id' => $request['doctor_id']]);
+    //   return redirect('doctors.show', $doctor);
+      return redirect()->route('doctors.show', ['id' => $doctor]);
+
     }
 
     /**
@@ -74,9 +80,16 @@ class RecommendationController extends Controller
      * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recommendation $recommendation)
+    public function update(Request $request, $id)
     {
-        //
+
+        $doctor = $request['doctor_id'];
+
+        DB::table('recommendations')
+            ->where('id', $id)
+            ->update(['comment' => $request['comment']]);
+
+        return redirect()->route('doctors.show', ['id' => $doctor]);
     }
 
     /**
@@ -85,8 +98,12 @@ class RecommendationController extends Controller
      * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recommendation $recommendation)
+    public function destroy(Request $request, $id)
     {
-        //
+        DB::table('recommendations')->where('id', '=', $id)->delete();
+        $doctor = $request['doctor_id'];
+
+        return redirect()->route('doctors.show', ['id' => $doctor]);
+
     }
 }

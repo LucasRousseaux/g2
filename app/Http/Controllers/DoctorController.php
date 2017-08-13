@@ -6,6 +6,7 @@ use App\Doctor;
 use App\User;
 use App\Recommendation;
 use Illuminate\Http\Request;
+use DB;
 
 class DoctorController extends Controller
 {
@@ -18,8 +19,10 @@ class DoctorController extends Controller
     {
         //mostrar todos los doctores
         $doctores = Doctor::paginate(12);
+        $recommendations = Recommendation::all();
         return view('doctors', [
-          'doctores' => $doctores
+          'doctores' => $doctores,
+          'recommendations' => $recommendations
         ]);
     }
 
@@ -54,11 +57,11 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::find($doctor->id);
         $users = User::all();
-        // $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->get();
+        $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->orderBy('updated_at', 'desc')->get();
         return view('doctor', [
           'doctor' => $doctor,
           'users' => $users,
-        //   'recommendations' => $recommendations
+          'recommendations' => $recommendations,
         ]);
     }
 
@@ -96,13 +99,4 @@ class DoctorController extends Controller
         //
     }
 
-    public function mostrarDoctor($id)
-    {
-        $doctor = Doctor::find($id);
-        $users = User::all();
-        return view('doctor', [
-          'doctor' => $doctor,
-          'users' => $users
-        ]);
-    }
 }

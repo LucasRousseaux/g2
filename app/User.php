@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Doctor;
+use App\Patient;
+use App\Recommendation;
+
 
 class User extends Authenticatable
 {
@@ -46,14 +50,14 @@ class User extends Authenticatable
     // hasMany / belongsTo
     public function recommendFrom() {
 
-        return $this-> hasMany (Recommendation::class, 'from_user_id');
+        return $this-> hasMany(Recommendation::class, 'from_user_id');
 
     }
 
     // hasMany / belongsTo
     public function recommendTo() {
 
-        return $this-> hasMany (Recommendation::class, 'to_user_id');
+        return $this-> hasMany(Recommendation::class, 'to_user_id');
 
     }
 
