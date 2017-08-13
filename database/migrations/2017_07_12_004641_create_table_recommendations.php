@@ -19,7 +19,7 @@ class CreateTableRecommendations extends Migration
             $table->increments('id');
             $table->bigInteger('from_user_id');
             $table->bigInteger('to_user_id');
-            $table->integer('grade');
+            $table->integer('grade')->nullable();
             $table->string('comment');
             $table->timestamps();
 

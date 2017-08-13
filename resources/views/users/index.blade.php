@@ -1,15 +1,20 @@
 @extends('layouts.template')
 
-@section('title') Usuarios
+@section('title') Users
 @endsection
 
 @section('content')
 <ul>
+
 @foreach($users as $user)
-<li> {{$user->name}}
+
+<li> {{$user->name}} ; {{$user->email}} ; {{$user->language}}
 </li>
+
 @endforeach
 
 </ul>
-{{$list->links()}}
+
+{{$users->links()}}
+
 @endsection

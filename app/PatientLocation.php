@@ -3,19 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Doctor;
+use App\Patient;
 use App\Location;
 
-class DoctorLocation extends Model
+class PatientLocation extends Model
 {
     //
     protected $guarded = [];
 
-    protected $table = 'doctor_location';
+    protected $table = 'patient_location';
 
-    public function doctor() {
+    public function patient() {
 
-        return $this->belongsTo(Doctor::class, 'doctor_id');
+        return $this->belongsTo(Patient::class, 'patient_id');
 
     }
 

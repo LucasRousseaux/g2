@@ -44,16 +44,31 @@ class User extends Authenticatable
     }
 
     // hasMany / belongsTo
-    public function recommendations() {
+    public function recommendFrom() {
 
         return $this-> hasMany (Recommendation::class, 'from_user_id');
 
     }
 
     // hasMany / belongsTo
-    public function isRecommended() {
+    public function recommendTo() {
 
         return $this-> hasMany (Recommendation::class, 'to_user_id');
+
+    }
+
+
+    // hasMany / belongsTo
+    public function followFrom() {
+
+        return $this-> hasMany (Follow::class, 'from_user_id');
+
+    }
+
+    // hasMany / belongsTo
+    public function followTo() {
+
+        return $this-> hasMany (Follow::class, 'to_user_id');
 
     }
 

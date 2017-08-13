@@ -33,3 +33,5 @@ Route::get('/prueba',function(){
 });
 
 Route::resource('users','UserController');
+
+Route::resource('patients','PatientController');

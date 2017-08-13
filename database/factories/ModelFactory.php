@@ -1,4 +1,5 @@
 <?php
+use App\DoctorLocation;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,15 @@ $factory->define(App\Doctor::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\DoctorLocation::class, function (Faker\Generator $faker) {
+
+    return [
+        'doctor_id' => 1,
+        'doctor_address' => $faker->address,
+        'location_id' => 1,
+    ];
+});
+
 $factory->define(App\Patient::class, function (Faker\Generator $faker) {
 
     return [
@@ -54,11 +64,20 @@ $factory->define(App\Patient::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\PatientLocation::class, function (Faker\Generator $faker) {
+
+    return [
+        'patient_id' => 1,
+        'patient_address' => $faker->address,
+        'location_id' => 1,
+    ];
+});
+
 
 $factory->define(App\Location::class, function (Faker\Generator $faker) {
 
     return [
-        'location_name' => $faker->stateAbbr,
+        'location_name' => $faker->state,
         'parent_location_id' => 1,
     ];
 });

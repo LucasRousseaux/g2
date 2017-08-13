@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableInstitutionsType extends Migration
+class CreateTableInstitutionTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -32,7 +32,7 @@ class CreateTableInstitutionsType extends Migration
     public function down()
     {
         //
-        Schema::drop('institutions_type');
+        Schema::drop('institution_type');
 
     }
 }

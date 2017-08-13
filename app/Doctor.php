@@ -18,19 +18,19 @@ class Doctor extends Model
 
     public function institutions() {
 
-        return $this->belongsToMany(Institution::class);
+        return $this->belongsToMany(Institution::class)->withTimestamps();
 
     }
 
     public function locations() {
 
-        return $this->belongsToMany(Location::class);
+        return $this->belongsToMany(Location::class)->withPivot('address')->withTimestamps();
 
     }
 
     public function specialties() {
 
-        return $this->belongsToMany(Specialty::class);
+        return $this->belongsToMany(Specialty::class)->withTimestamps();
 
     }
 

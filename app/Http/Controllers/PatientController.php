@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Patient;
 
 class PatientController extends Controller
 {
@@ -14,6 +15,8 @@ class PatientController extends Controller
     public function index()
     {
         //
+        $patients = Patient::paginate(10);
+        return view('patients.index',['patients' => $patients]);
     }
 
     /**
@@ -46,6 +49,8 @@ class PatientController extends Controller
     public function show($id)
     {
         //
+        $patient = Patient::find($id);
+        return view('patients.show',['patient' => $patient]);
     }
 
     /**
