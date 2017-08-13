@@ -13,12 +13,12 @@
 
         </div>
       </div>
+      {{ $doctores->links() }}
       <div class="row">
-        {{ $doctores->links() }}
         <div class="docsContainer">
           @foreach ($doctores as $doctor)
             <article class="">
-              <a href="doctor/{{$doctor->id}}"><img src={{ $doctor->doctor_image }} alt=""></a>
+              <a href={{route('doctors.show', $doctor->id)}}><img src={{ $doctor->doctor_image }} alt=""></a>
               <div class="textDoctor">
                 <h2>{{ $doctor->doctor_name }}</h2>
                 <h4>{{ $doctor->doctor_experience }}</h4>
@@ -26,11 +26,9 @@
               <div class="coments">
                 <div class="rating">
                   <ul>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
+                    @for ($i=0; $i < $doctor->user->recommendations[0]->grade ; $i++)
+                      <li><i class="fa fa-star"></i></li>
+                    @endfor
                   </ul>
                 </div>
                 <div class="usersComent">
