@@ -91,7 +91,7 @@
                     <img src="http://lorempixel.com/600/600/people/" alt="">
                   </div>
                   <div class="col-sm-8">
-                    <h3>{{$r->from_user_id}}</h3>
+                    <h3>{{$r->from_user_name}}</h3>
                     <h5>{{$r->updated_at}}</h5>
                   </div>
                   <div class="col-sm-2">

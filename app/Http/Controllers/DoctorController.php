@@ -56,14 +56,23 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show($id)
     {
-        $doctor = Doctor::find($doctor->id);
-        $users = User::all();
-        $recommendations = DB::table('recommendations')->where('to_user_id', '=', $doctor->id)->orderBy('updated_at', 'desc')->get();
+
+        $doctor = Doctor::find($id);
+
+        //DB::table('doctors')
+        //->where('doctors.id', '=', $id)
+        //->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, doctors.doctor_phone as doctor_phone')->get();
+
+        $recommendations = DB::table('recommendations')
+        ->join('users', 'recommendations.from_user_id', '=', 'users.id')
+        ->join('doctors', 'recommendations.to_user_id', '=', 'doctors.id')
+        ->where('doctors.id', '=', $id)
+        ->selectRaw('recommendations.id as id, recommendations.comment as comment, recommendations.grade as grade, users.name as from_user_name, recommendations.from_user_id as from_user_id, recommendations.updated_at as updated_at')->get();
+
         return view('doctor', [
           'doctor' => $doctor,
-          'users' => $users,
           'recommendations' => $recommendations,
         ]);
     }
