@@ -12,5 +12,7 @@ class InstitutionTypeTableSeeder extends Seeder
     public function run()
     {
         //
+        $institutionTypes = factory(App\InstitutionType::class)->times(50)->create();
+
     }
 }

@@ -12,25 +12,25 @@ class Doctor extends Model
 
     public function user() {
 
-      return $this->belongsTo(User::class);
+      return $this->belongsTo('App\User');
 
     }
 
     public function institutions() {
 
-        return $this->belongsToMany(Institution::class)->withTimestamps();
+        return $this->belongsToMany('App\Institution')->withTimestamps();
 
     }
 
     public function locations() {
 
-        return $this->belongsToMany(Location::class)->withPivot('address')->withTimestamps();
+        return $this->belongsToMany('App\Location')->withPivot('address')->withTimestamps();
 
     }
 
     public function specialties() {
 
-        return $this->belongsToMany(Specialty::class)->withTimestamps();
+        return $this->belongsToMany('App\Specialty')->withTimestamps();
 
     }
 

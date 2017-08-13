@@ -12,5 +12,7 @@ class SpecialtyTableSeeder extends Seeder
     public function run()
     {
         //
+        $specialties = factory(App\Specialty::class)->times(50)->create();
+        
     }
 }

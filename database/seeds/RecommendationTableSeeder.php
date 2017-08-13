@@ -12,5 +12,14 @@ class RecommendationTableSeeder extends Seeder
     public function run()
     {
         //
+        $recommendations = factory(App\Recommendation::class)->times(50)->create();
+
+        foreach ($recommendations as $recommendation) {
+            $recommendation->fromUser()->associate(App\Patient::inRandomOrder()->first()->user);
+            $recommendation->toUser()->associate(App\Doctor::inRandomOrder()->first()->user);
+            $recommendation->save();
+        }
+
+
     }
 }

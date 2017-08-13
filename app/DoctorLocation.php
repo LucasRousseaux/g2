@@ -15,13 +15,13 @@ class DoctorLocation extends Model
 
     public function doctor() {
 
-        return $this->belongsTo(Doctor::class, 'doctor_id');
+        return $this->belongsTo('App\Doctor', 'doctor_id');
 
     }
 
     public function location() {
 
-        return $this->belongsTo(Location::class, 'location_id');
+        return $this->belongsTo('App\Location', 'location_id');
 
     }
 

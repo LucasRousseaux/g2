@@ -12,5 +12,7 @@ class LocationTableSeeder extends Seeder
     public function run()
     {
         //
+        $locations = factory(App\Location::class)->times(50)->create();
+
     }
 }

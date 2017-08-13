@@ -12,13 +12,13 @@ class Institution extends Model
     // belongsToMany
     public function doctors() {
 
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsToMany('App\Doctor');
 
     }
 
     public function institutionTypes() {
 
-        return $this->belongsTo(InstitutionType::class);
+        return $this->belongsTo('App\InstitutionType','institution_type_id');
 
     }
 

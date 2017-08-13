@@ -12,5 +12,14 @@ class InstitutionTableSeeder extends Seeder
     public function run()
     {
         //
+        $institutions = factory(App\Institution::class)->times(50)->create();
+
+        foreach ($institutions as $institution) {
+
+          $institution->institutionTypes()->associate(App\InstitutionType::inRandomOrder()->first());
+          $institution->save();
+
+        }
+
     }
 }

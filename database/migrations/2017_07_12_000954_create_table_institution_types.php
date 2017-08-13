@@ -32,7 +32,7 @@ class CreateTableInstitutionTypes extends Migration
     public function down()
     {
         //
-        Schema::drop('institution_type');
+        Schema::drop('institution_types');
 
     }
 }

@@ -11,7 +11,7 @@ class Patient extends Model
 
     public function user() {
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
 
     }
 
@@ -20,7 +20,7 @@ class Patient extends Model
     // belongsToMany
     public function locations() {
 
-        return $this->belongsToMany(Location::class)->withPivot('address')->withTimestamps();
+        return $this->belongsToMany('App\Location')->withPivot('address')->withTimestamps();
 
     }
 
