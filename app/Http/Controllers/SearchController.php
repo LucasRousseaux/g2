@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
+
 class SearchController extends Controller
 {
     //
 
-    public function index($specialist = null,$location = null)
+    // public function index($specialist = null,$location = null)
+    public function index(Request $request)
     {
         //mostrar todos los doctores
+
+        // dd($request['speciality'], $request['location']);
+
+        $specialist = $request['speciality'];
+        $location = $request['location'];
 
         $doctors = DB::table('doctors')
         ->join('doctor_location', 'doctors.id', '=', 'doctor_location.doctor_id')
@@ -24,6 +31,8 @@ class SearchController extends Controller
         ->groupBy('id', 'doctor_name', 'doctor_image', 'doctor_experience')
         ->orderBy('doctor_ranking','desc')
         ->selectRaw('doctors.id as id,doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, sum(recommendations.grade) as doctor_ranking')->take(10)->get();
+
+        // dd($doctors);
 
         return view('search', [
           'doctors' => $doctors,

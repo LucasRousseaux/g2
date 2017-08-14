@@ -1,16 +1,15 @@
 #doctores {
   min-height: 50vh;
   .encabezado {
+    ul {
+      float: right;
+    }
     h2 {
       font-size: 32px;
       font-weight: 400;
     }
     a {
-      float: right;
-      font-size: 20px;
       color: $brand-gray-01;
-      margin-top: 22px;
-      margin-bottom: 11px;
       &:hover{
         color: $brand-secundary;
         text-decoration: none;

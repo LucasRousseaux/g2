@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $specialities = Specialty::all();
         $locations = Location::all();
-        $doctors = Doctor::all();
+        $doctors = Doctor::paginate(12);
         return view('home', [
           'specialities' => $specialities,
           'locations' => $locations,

@@ -70,16 +70,20 @@
         <div class="row">
           <div class="col-xs-12">
             <h3>Escribir un comentario</h3>
-            <form class="comentario" action={{ route('recommendations.store') }} method="post">
-              {{ csrf_field() }}
-              <input type="text" name="from_user_id" value={{Auth::user()->id}} style="display:none">
-              <input type="text" name="to_user_id" value={{$doctor->id}} style="display:none">
-              <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Escribe un nuevo comentario"></textarea>
+            @if (Auth::check())
+              <form class="comentario" action={{ route('recommendations.store') }} method="post">
+                {{ csrf_field() }}
+                <input type="text" name="from_user_id" value={{Auth::user()->id}} style="display:none">
+                <input type="text" name="to_user_id" value={{$doctor->id}} style="display:none">
+                <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Escribe un nuevo comentario"></textarea>
 
-              <div class="col-sm-offset-8 col-sm-4">
-                <button type="submit" name="button">Comentar</button>
-              </div>
-            </form>
+                <div class="col-sm-offset-8 col-sm-4">
+                  <button type="submit" name="button">Comentar</button>
+                </div>
+              </form>
+              @else
+                <h4>Para dejar un comentario <a href={{route('register')}}>registrate</a> o <a href={{ route('login') }}>iniciá sesión</a></h4>
+            @endif
           </div>
         </div>
         <div class="row">
@@ -95,7 +99,7 @@
                     <h5>{{$r->updated_at}}</h5>
                   </div>
                   <div class="col-sm-2">
-                    @if (Auth::user()->id == $r->from_user_id)
+                    @if (Auth::check() && Auth::user()->id == $r->from_user_id )
                       <ul class="edit">
                         <li><a href="btnComment" onclick="event.preventDefault();showEdit()"><i class="fa fa-edit"></i></a></li>
                         <li><a href={{  route('recommendations.destroy', ['id' => $r->id] ) }} onclick="event.preventDefault();document.getElementById('delete').submit();"><i class="fa fa-trash-o"></i></a></li>
@@ -106,22 +110,23 @@
                         {{ method_field('DELETE') }}
                         <input type="text" name="doctor_id" value={{$doctor->id}}>
                       </form>
-
                     @endif
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12 comment">
                     <p class="jsComment">{{ $r->comment }}</p>
-                    <form class="jsUpComment" action={{ route('recommendations.update', ['id' => $r->id])}} method="post">
-                      {{ csrf_field() }}
-                      {{ method_field('PUT') }}
-                      <textarea class="form-control" rows="5" type="text" name="comment" placeholder="{{ $r->comment }}"></textarea>
-                      <input type="text" name="doctor_id" value={{$doctor->id}} style="display:none">
-                      <div class="col-sm-offset-9 col-sm-3">
-                        <button type="submit" name="button">editar</button>
-                      </div>
-                    </form>
+                    @if (Auth::check() && Auth::user()->id == $r->from_user_id)
+                      <form class="jsUpComment" action={{ route('recommendations.update', ['id' => $r->id])}} method="post">
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
+                        <textarea class="form-control" rows="5" type="text" name="comment" placeholder="{{ $r->comment }}"></textarea>
+                        <input type="text" name="doctor_id" value={{$doctor->id}} style="display:none">
+                        <div class="col-sm-offset-9 col-sm-3">
+                          <button type="submit" name="button">editar</button>
+                        </div>
+                      </form>
+                    @endif
                   </div>
                 </div>
               </div>

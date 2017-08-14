@@ -12,9 +12,7 @@ use App\Recommendation;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
@@ -31,7 +29,9 @@ Route::get('/prueba',function(){
 
 });
 
-Route::resource('/search/{specialty},{location}', 'SearchController');
+// Route::resource('/search/{specialty},{location}', 'SearchController');
+
+Route::get('/search', 'SearchController@index');
 
 Route::resource('users','UserController');
 

@@ -72,18 +72,28 @@
                 <div class="row">
                     <div class="buscador">
                       <div class="form-inicio">
-                        <form class="formulario-home" action="" method="post">
+                        <form class="formulario-home" action={{ url('search') }} method="get">
+                          {{ csrf_field() }}
+
                           <div class="col-xs-12 col-sm-5 col-md-4">
                             <label for="medico">¿Qué especialidad buscás?</label>
-                            <input type="text" name="medico" value="" placeholder="Especialista">
+                            <select class="" name="speciality">
+                              @foreach ($specialities as $speciality)
+                                <option value={{ $speciality->specialty_name }}>{{ $speciality->specialty_name }}</option>
+                              @endforeach
+                            </select>
                           </div>
                           <div class="col-xs-12 col-sm-3 col-md-4">
                             <label for="localidad">¿En dónde lo necesitás?</label>
-                            <input type="text" name="localidad" value="" placeholder="Elegi tu localidad">
+                            <select class="" name="location">
+                              @foreach ($locations as $location)
+                                <option value={{ $location->location_name }}>{{ $location->location_name }}</option>
+                              @endforeach
+                            </select>
                           </div>
                           <div class="col-xs-12 col-sm-3 col-md-3">
                             <label for="fecha">¿Cuándo lo necesitás?</label>
-                            <input type="text" name="fecha" value="" placeholder="Fecha">
+                            <input type="text" placeholder="Fecha">
                           </div>
                           <div class="col-xs-12 col-sm-1 col-md-1">
                             <button type="submit" name="" value=""><i class="fa fa-search"></i></button>
