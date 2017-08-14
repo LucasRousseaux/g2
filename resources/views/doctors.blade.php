@@ -25,13 +25,13 @@
               <div class="coments">
                 <div class="rating">
                   <ul>
-                    @for ($i=0; $i < $doctor->doctor_ranking ; $i++)
+                    @for ($i=0; $i < $doctor->doctor_grade ; $i++)
                       <li><i class="fa fa-star"></i></li>
                     @endfor
                   </ul>
                 </div>
                 <div class="usersComent">
-                  <span>3</span>
+                  <span>{{$doctor->doctor_comments}}</span>
                   <a href=""><i class="fa fa-comments"></i></a>
                 </div>
               </div>

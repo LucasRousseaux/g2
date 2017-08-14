@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\User;
+use App\Specialty;
+use App\Location;
 use App\Recommendation;
 use Illuminate\Http\Request;
 use DB;
@@ -22,10 +24,15 @@ class DoctorController extends Controller
         ->join('users', 'doctors.user_id', '=', 'users.id')
         ->join('recommendations', 'recommendations.to_user_id', '=', 'users.id')
         ->groupBy('id', 'doctor_name', 'doctor_image', 'doctor_experience')
-        ->orderBy('doctor_raking','desc')
-        ->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, sum(recommendations.grade) as doctor_ranking')->take(10)->get();
+        ->orderBy('doctor_ranking','desc')
+        ->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, sum(recommendations.grade) as doctor_ranking, avg(recommendations.grade) as doctor_grade, count(recommendations.grade) as doctor_comments')->get();
+
+        $specialties = Specialty::all();
+        $locations = Location::all();
 
         return view('doctors', [
+          'specialties' => $specialties,
+          'locations' => $locations,
           'list' => $doctors,
         ]);
     }

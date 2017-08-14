@@ -78,7 +78,7 @@
                           <div class="col-xs-12 col-sm-5 col-md-4">
                             <label for="medico">¿Qué especialidad buscás?</label>
                             <select class="" name="speciality">
-                              @foreach ($specialities as $speciality)
+                              @foreach ($specialties as $speciality)
                                 <option value={{ $speciality->specialty_name }}>{{ $speciality->specialty_name }}</option>
                               @endforeach
                             </select>
