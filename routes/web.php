@@ -31,6 +31,8 @@ Route::get('/prueba',function(){
 
 });
 
+Route::resource('/search/{specialty},{location}', 'SearchController');
+
 Route::resource('users','UserController');
 
 Route::resource('patients','PatientController');
