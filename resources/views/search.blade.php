@@ -18,7 +18,7 @@
         <div class="docsContainer">
           @foreach ($doctors as $doctor)
             <article class="">
-              <a href={{route('doctors.show', $doctor->id)}}><img src={{ $doctor->doctor_image }} alt=""></a>
+              <a href={{route('doctors.show', $doctor->doctor_user_id)}}><img src={{ $doctor->doctor_image }} alt=""></a>
               <div class="textDoctor">
                 <h2>{{ $doctor->doctor_name }}</h2>
                 <h4>{{ $doctor->doctor_experience }}</h4>

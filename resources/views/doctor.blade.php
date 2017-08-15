@@ -3,8 +3,7 @@
 @section('content')
   <section id="doctor">
     <div class="row">
-      <div class="col-sm-offset-1 col-sm-4 floatDer">
-
+      <div class="col-sm-offset-1 col-sm-4 floatDer" id="ventana_doc">
         <div class="imgDoctor">
           <img src= "{{ $doctor->doctor_image }}" alt="">
         </div>

@@ -12,11 +12,11 @@ class WelcomeController extends Controller
 {
   public function index()
   {
-      $specialities = Specialty::all();
+      $specialties = Specialty::all();
       $locations = Location::all();
       $doctors = Doctor::all();
       return view('welcome', [
-        'specialities' => $specialities,
+        'specialties' => $specialties,
         'locations' => $locations,
         'doctors' => $doctors,
       ]);

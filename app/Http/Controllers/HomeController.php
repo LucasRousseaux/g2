@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Specialty;
 use App\Location;
 use App\Doctor;
+use DB;
 
 
 class HomeController extends Controller
