@@ -100,6 +100,7 @@ class RecommendationController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        // dd($request['doctor_id']);
         DB::table('recommendations')->where('id', '=', $id)->delete();
         $doctor = $request['doctor_id'];
 

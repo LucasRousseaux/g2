@@ -21,11 +21,11 @@ class DoctorController extends Controller
     {
         //mostrar todos los doctores
         $doctors = DB::table('doctors')
-        ->join('users', 'doctors.user_id', '=', 'users.id')
-        ->join('recommendations', 'recommendations.to_user_id', '=', 'users.id')
-        ->groupBy('id', 'doctor_name', 'doctor_image', 'doctor_experience')
+        ->join('recommendations', 'recommendations.to_user_id', '=', 'doctors.user_id')
+        ->join('patients', 'recommendations.from_user_id', '=', 'patients.user_id')
+        ->groupBy('id', 'doctor_name', 'doctor_image', 'doctor_experience','patient_image')
         ->orderBy('doctor_ranking','desc')
-        ->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, sum(recommendations.grade) as doctor_ranking, avg(recommendations.grade) as doctor_grade, count(recommendations.grade) as doctor_comments')->get();
+        ->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, patients.patient_image as patient_image, sum(recommendations.grade) as doctor_ranking, avg(recommendations.grade) as doctor_grade, count(recommendations.grade) as doctor_comments')->get();
 
         $specialties = Specialty::all();
         $locations = Location::all();
@@ -67,17 +67,22 @@ class DoctorController extends Controller
     public function show($id)
     {
 
-        $doctor = Doctor::find($id);
+//        $doctor = Doctor::find($id);
+
+        $doctor = DB::table('doctors')
+        ->join('recommendations', 'recommendations.to_user_id', '=', 'doctors.user_id')
+        ->where('doctors.user_id','=',$id)
+        ->groupBy('id', 'doctor_user_id','doctor_name', 'doctor_phone','doctor_image', 'doctor_experience')
+        ->selectRaw('doctors.id as id, doctors.user_id as doctor_user_id,doctors.doctor_name as doctor_name, doctors.doctor_phone as doctor_phone, doctors.doctor_image as doctor_image, doctors.doctor_experience as doctor_experience, avg(recommendations.grade) as doctor_grade, count(recommendations.grade) as doctor_comments')->first();
 
         //DB::table('doctors')
         //->where('doctors.id', '=', $id)
         //->selectRaw('doctors.id as id, doctors.doctor_name as doctor_name, doctors.doctor_image as doctor_image,doctors.doctor_experience as doctor_experience, doctors.doctor_phone as doctor_phone')->get();
 
         $recommendations = DB::table('recommendations')
-        ->join('users', 'recommendations.from_user_id', '=', 'users.id')
-        ->join('doctors', 'recommendations.to_user_id', '=', 'doctors.id')
-        ->where('doctors.id', '=', $id)
-        ->selectRaw('recommendations.id as id, recommendations.comment as comment, recommendations.grade as grade, users.name as from_user_name, recommendations.from_user_id as from_user_id, recommendations.updated_at as updated_at')->get();
+        ->join('patients', 'recommendations.from_user_id', '=', 'patients.user_id')
+        ->where('recommendations.to_user_id', '=', $id)
+        ->selectRaw('recommendations.id as id, patients.patient_name as patient_name, patients.patient_image as patient_image,recommendations.comment as comment, recommendations.grade as grade, recommendations.from_user_id as from_user_id, recommendations.updated_at as updated_at')->get();
 
         return view('doctor', [
           'doctor' => $doctor,
