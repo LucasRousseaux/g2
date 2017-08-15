@@ -131,32 +131,6 @@
               </div>
             </div>
           @endforeach
-
-          {{-- <div class="col-sm-12">
-            <div class="comentario">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="http://lorempixel.com/600/600/people/" alt="">
-                </div>
-                <div class="col-sm-8">
-                  <h3>Rodrigo Trejo</h3>
-                  <h5>29 de Julio de 2017</h5>
-                </div>
-                <div class="col-sm-2">
-                  <ul class="edit">
-                    <li><a href=""><i class="fa fa-edit"></i></a></li>
-                    <li><a href=""><i class="fa fa-trash-o"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-              </div>
-
-            </div>
-          </div> --}}
         </div>
       </div>
     </div>

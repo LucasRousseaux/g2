@@ -18,7 +18,7 @@
 
                                 <div class="col-sm-offset-2 col-sm-8">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Tu email">
-
+                                    <span id="mailError" style="color:red"></span>
                                     @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>

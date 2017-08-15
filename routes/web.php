@@ -36,3 +36,5 @@ Route::get('/search', 'SearchController@index');
 Route::resource('users','UserController');
 
 Route::resource('patients','PatientController');
+
+Route::get('mail', 'UserController@mail');
